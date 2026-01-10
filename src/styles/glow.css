@@ -1,0 +1,16 @@
+.glow-text-cyan {
+    text-shadow: 0 0 8px var(--anime-cyan);
+}
+
+.glow-box-cyan {
+    box-shadow: 0 0 15px var(--anime-cyan-dim);
+}
+
+.glow-pulse-active {
+    animation: glowPulse 3s infinite ease-in-out;
+}
+
+.glow-border {
+    border: 1px solid var(--anime-cyan);
+    box-shadow: 0 0 8px var(--anime-cyan-dim);
+}

@@ -1,0 +1,50 @@
+.frameContainer {
+    position: relative;
+    width: 800px;
+    /* Default width, modifiable */
+    height: 600px;
+    /* Default height */
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    padding: 5px;
+    /* Spacing for Rails */
+}
+
+/* Layer 1: Outer Rail (Removed for this step as per instructions) */
+.energyFrameOuter {
+    display: none;
+}
+
+/* Layer 2: Inner Rail (Removed for this step as per instructions) */
+.energyFrameInner {
+    display: none;
+}
+
+/* Layer 3: Glass Body (Darker) */
+.glassPanel {
+    position: absolute;
+    top: 10px;
+    /* Aligns with center of TopBorder */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-panel);
+    z-index: 0;
+    backdrop-filter: blur(5px);
+    /* Optional: Round bottom corners slightly if desired, but user didn't specify. Keeping sharp for now. */
+}
+
+/* Layer 4: Inner Highlight (Hidden to ensure no other borders visible) */
+.innerHighlight {
+    display: none;
+}
+
+.contentArea {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

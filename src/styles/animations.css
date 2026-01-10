@@ -1,0 +1,47 @@
+@keyframes floatSlow {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 5px var(--anime-cyan-dim);
+    }
+
+    50% {
+        box-shadow: 0 0 20px var(--anime-cyan), 0 0 10px var(--anime-blue);
+    }
+
+    100% {
+        box-shadow: 0 0 5px var(--anime-cyan-dim);
+    }
+}
+
+@keyframes scanline {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes rotateLoader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

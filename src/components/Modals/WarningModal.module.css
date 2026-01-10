@@ -1,0 +1,41 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-modal);
+    backdrop-filter: blur(5px);
+}
+
+.modalWindow {
+    position: relative;
+    width: 400px;
+    background: rgba(20, 0, 0, 0.9);
+    border: 2px solid var(--anime-red);
+    box-shadow: 0 0 20px var(--anime-red);
+    padding: 20px;
+    text-align: center;
+    animation: floatSlow 3s infinite ease-in-out;
+}
+
+.warningHeader {
+    color: var(--anime-red);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--anime-red);
+    border-bottom: 1px solid var(--anime-red);
+    padding-bottom: 10px;
+}
+
+.warningContent {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}

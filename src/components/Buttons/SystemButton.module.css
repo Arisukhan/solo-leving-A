@@ -1,0 +1,57 @@
+.buttonContainer {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 10px 30px;
+    margin: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.buttonBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--anime-cyan-dim);
+    opacity: 0.2;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.buttonBorder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--anime-cyan);
+    z-index: 2;
+    box-shadow: 0 0 5px var(--anime-cyan);
+}
+
+.buttonText {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    font-family: var(--font-tech);
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.buttonContainer:hover .buttonBg {
+    opacity: 0.6;
+    background: var(--anime-cyan);
+}
+
+.buttonContainer:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 8px #fff;
+}
+
+.buttonContainer:active {
+    transform: scale(0.95);
+}

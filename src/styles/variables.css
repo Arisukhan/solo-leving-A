@@ -1,0 +1,29 @@
+:root {
+  /* Core Colors */
+  --anime-cyan: #00f0ff;
+  --anime-cyan-dim: #00f0ff80;
+  --anime-blue: #00a8ff;
+  --anime-purple: #bd00ff;
+  --anime-red: #ff0055;
+  --anime-yellow: #ffee00;
+
+  /* Backgrounds */
+  --bg-dark: #050510;
+  --bg-panel: rgba(10, 10, 20, 0.7);
+  --bg-glass: rgba(20, 30, 40, 0.4);
+
+  /* Borders & Rails */
+  --rail-thick: 8px;
+  --rail-thin: 1px;
+  --border-glow: 0 0 10px var(--anime-cyan);
+  
+  /* Fonts */
+  --font-tech: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Fallback for tech feel */
+  
+  /* Z-Index Layers */
+  --z-back: 0;
+  --z-content: 10;
+  --z-frame: 50;
+  --z-modal: 100;
+  --z-overlay: 200;
+}
