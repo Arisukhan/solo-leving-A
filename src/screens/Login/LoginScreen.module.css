@@ -5,26 +5,88 @@
     width: 100%;
 }
 
+.title {
+    color: var(--anime-cyan);
+    margin-bottom: 30px;
+}
+
+.inputGroup {
+    position: relative;
+    margin-bottom: 25px;
+}
+
 .inputField {
-    background: rgba(0, 240, 255, 0.1);
-    border: 1px solid var(--anime-cyan-dim);
-    padding: 10px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--anime-cyan-dim);
+    padding: 10px 0;
     color: #fff;
     font-family: var(--font-tech);
-    margin-bottom: 20px;
-    width: 250px;
+    width: 300px;
     outline: none;
     transition: all 0.3s;
+    font-size: 1.1rem;
 }
 
 .inputField:focus {
-    background: rgba(0, 240, 255, 0.2);
-    box-shadow: 0 0 10px var(--anime-cyan-dim);
+    border-bottom-color: var(--anime-cyan);
+    box-shadow: 0 5px 15px -10px var(--anime-cyan);
 }
 
-.statusText {
+.eyeIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--anime-cyan-dim);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.eyeIcon:hover {
     color: var(--anime-cyan);
-    font-size: 0.8rem;
-    margin-top: 10px;
-    opacity: 0.7;
+}
+
+.loginButton {
+    background: var(--anime-cyan);
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    font-family: var(--font-tech);
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--anime-cyan);
+    animation: pulse 2s infinite;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.loginButton:hover {
+    box-shadow: 0 0 25px var(--anime-cyan);
+    transform: scale(1.05);
+}
+
+.forgotPassword {
+    color: var(--anime-cyan-dim);
+    font-size: 0.9rem;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.forgotPassword:hover {
+    color: var(--anime-cyan);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px var(--anime-cyan);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--anime-cyan);
+    }
+    100% {
+        box-shadow: 0 0 10px var(--anime-cyan);
+    }
 }

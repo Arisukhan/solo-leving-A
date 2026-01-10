@@ -4,20 +4,18 @@ import EnergyFrame from '../../components/EnergyFrame/EnergyFrame';
 import TopBorder from '../../components/Borders/TopBorder';
 import BottomBorder from '../../components/Borders/BottomBorder';
 import SystemWindow from '../../components/SystemWindow/SystemWindow';
-import SystemButton from '../../components/Buttons/SystemButton';
-import WarningModal from '../../components/Modals/WarningModal';
+import { Eye, EyeOff } from 'lucide-react'; // Assuming lucide-react is available or will be added
 
-const LoginScreen = ({ onBack }) => {
-    const [showWarning, setShowWarning] = useState(false);
-    const [clicks, setClicks] = useState(0);
+const LoginScreen = ({ onBack, onLoginSuccess }) => {
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
 
     const handleLogin = () => {
-        // Logic allowed: Warning counter
-        const newClicks = clicks + 1;
-        setClicks(newClicks);
-        if (newClicks % 2 !== 0) {
-            setShowWarning(true);
-        }
+        // In a real app, you'd validate credentials here
+        onLoginSuccess();
     };
 
     return (
@@ -25,28 +23,37 @@ const LoginScreen = ({ onBack }) => {
             <EnergyFrame>
                 <TopBorder />
                 <SystemWindow>
-                    <h2 style={{ color: 'var(--anime-cyan)', marginBottom: '30px' }}>IDENTIFICATION</h2>
-                    <input type="text" placeholder="AGENT ID" className={styles.inputField} />
-                    <input type="password" placeholder="ACCESS KEY" className={styles.inputField} />
+                    <h2 className={styles.title}>IDENTIFICATION</h2>
 
-                    <div style={{ display: 'flex' }}>
-                        <SystemButton onClick={handleLogin}>AUTHENTICATE</SystemButton>
-                        <SystemButton onClick={onBack}>ABORT</SystemButton>
+                    <div className={styles.inputGroup}>
+                        <input
+                            type="text"
+                            placeholder="USERNAME / EMAIL"
+                            className={styles.inputField}
+                        />
                     </div>
 
-                    <div className={styles.statusText}>
-                        SYSTEM STATUS: NORMAL
+                    <div className={styles.inputGroup}>
+                        <input
+                            type={passwordVisible ? 'text' : 'password'}
+                            placeholder="PASSWORD"
+                            className={styles.inputField}
+                        />
+                        <span className={styles.eyeIcon} onClick={togglePasswordVisibility}>
+                            {passwordVisible ? <EyeOff size={20} /> : <Eye size={20} />}
+                        </span>
+                    </div>
+
+                    <button className={styles.loginButton} onClick={handleLogin}>
+                        ENTER SYSTEM
+                    </button>
+
+                    <div className={styles.forgotPassword}>
+                        Forgot Password?
                     </div>
                 </SystemWindow>
                 <BottomBorder />
             </EnergyFrame>
-
-            <WarningModal
-                isOpen={showWarning}
-                onClose={() => setShowWarning(false)}
-                message="UNAUTHORIZED ACCESS DETECTED"
-                count={clicks}
-            />
         </div>
     );
 };
