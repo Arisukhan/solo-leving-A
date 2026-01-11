@@ -70,7 +70,6 @@ const WelcomeScreen = ({ onStart, onTerminate }) => {
                 isOpen={isWarningOpen}
                 onClose={closeWarning}
                 message={warningMessage}
-                count={parseInt(localStorage.getItem('no_click_count') || '0')}
             />
         </>
     );

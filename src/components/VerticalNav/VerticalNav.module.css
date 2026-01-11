@@ -1,0 +1,23 @@
+.verticalNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.navItem {
+    color: var(--anime-cyan-dim);
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.navItem:hover {
+    color: var(--anime-cyan-bright);
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px var(--anime-cyan-bright));
+}
+
+.navItem.active {
+    color: var(--anime-cyan-bright);
+    filter: drop-shadow(0 0 10px var(--anime-cyan-bright));
+}
