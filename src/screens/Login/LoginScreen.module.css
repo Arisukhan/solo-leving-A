@@ -21,6 +21,7 @@
     width: 100%;
 }
 
+
 .inputWrapper {
     position: relative;
     width: 100%;
@@ -36,6 +37,7 @@
     color: #fff;
     font-size: 1rem;
     font-family: var(--font-tech);
+
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -64,6 +66,7 @@
     background: var(--anime-cyan);
     color: #000;
     border: none;
+
     padding: 12px 30px;
     font-family: var(--font-tech);
     font-size: 1rem;
@@ -81,6 +84,7 @@
 
 @keyframes pulse {
     0% {
+
         box-shadow: 0 0 5px var(--anime-cyan), 0 0 10px var(--anime-cyan-dim);
     }
     50% {

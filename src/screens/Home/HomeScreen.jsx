@@ -1,10 +1,5 @@
-import styles from './HomeScreen.module.css';
-import HudPanel from '../../components/HudPanel/HudPanel';
-import VerticalNav from '../../components/VerticalNav/VerticalNav';
-import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
-import QuestCard from '../../components/QuestCard/QuestCard';
-import HabitCard from '../../components/HabitCard/HabitCard';
 
+e to the System.
 const HomeScreen = () => {
     return (
         <div className={styles.homeScreen}>

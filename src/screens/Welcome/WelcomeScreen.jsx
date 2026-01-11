@@ -4,6 +4,7 @@ import EnergyFrame from '../../components/EnergyFrame/EnergyFrame';
 import TopBorder from '../../components/Borders/TopBorder';
 import BottomBorder from '../../components/Borders/BottomBorder';
 import SystemWindow from '../../components/SystemWindow/SystemWindow';
+
 import WarningModal from '../../components/Modals/WarningModal';
 
 const WelcomeScreen = ({ onStart, onTerminate }) => {

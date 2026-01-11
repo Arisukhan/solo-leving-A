@@ -4,6 +4,7 @@ import EnergyFrame from '../../components/EnergyFrame/EnergyFrame';
 import TopBorder from '../../components/Borders/TopBorder';
 import BottomBorder from '../../components/Borders/BottomBorder';
 import SystemWindow from '../../components/SystemWindow/SystemWindow';
+
 import { Eye, EyeOff } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -33,6 +34,7 @@ const LoginScreen = ({ onLoginSuccess }) => {
             <EnergyFrame>
                 <TopBorder />
                 <SystemWindow>
+
                     <h2 className={styles.title}>LOGIN</h2>
                     <form onSubmit={handleLogin} className={styles.loginForm}>
                         <div className={styles.inputWrapper}>
