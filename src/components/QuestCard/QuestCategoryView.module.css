@@ -1,0 +1,30 @@
+.categoryView {
+    padding: 20px;
+}
+
+.title {
+    color: var(--anime-cyan-bright);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.categoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.categoryList button {
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--anime-cyan-dim);
+    padding: 15px;
+    color: #fff;
+    font-family: var(--font-tech);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.categoryList button:hover {
+    background: var(--anime-cyan);
+    color: #000;
+}

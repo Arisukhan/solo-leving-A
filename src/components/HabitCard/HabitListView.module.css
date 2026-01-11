@@ -1,0 +1,27 @@
+.listView {
+    padding: 20px;
+}
+
+.title {
+    color: var(--anime-cyan-bright);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.habitList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.habitItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid var(--anime-cyan-dim);
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}

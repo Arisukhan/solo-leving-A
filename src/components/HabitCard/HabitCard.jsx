@@ -1,35 +1,56 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './HabitCard.module.css';
+import { motion, AnimatePresence } from 'framer-motion';
+import HabitListView from './HabitListView';
+import HabitDetailView from './HabitDetailView';
 
-const initialHabits = [
-    { text: 'Drink Water', completed: false },
-    { text: 'Meditation', completed: false },
-    { text: 'Read a Chapter', completed: false },
-];
+const HabitCard = ({ isOpen, onClick }) => {
+    const [view, setView] = useState('entry'); // entry, list, detail
+    const [selectedHabit, setSelectedHabit] = useState(null);
 
-const HabitCard = () => {
-    const [habits, setHabits] = useState(initialHabits);
+    useEffect(() => {
+        if (isOpen) {
+            setView('list');
+        } else {
+            // Reset state when the card is closed
+            setTimeout(() => {
+                setView('entry');
+                setSelectedHabit(null);
+            }, 300); // Delay to allow for exit animation
+        }
+    }, [isOpen]);
 
-    const toggleHabit = (index) => {
-        const newHabits = [...habits];
-        newHabits[index].completed = !newHabits[index].completed;
-        setHabits(newHabits);
+    const handleSelectHabit = (habit) => {
+        setSelectedHabit(habit);
+        setView('detail');
+    };
+
+    const handleCloseDetail = () => {
+        setView('list');
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: { opacity: 1, scale: 1 },
     };
 
     return (
-        <div className={styles.habitCard}>
-            <h3 className={styles.title}>Habit Tracker</h3>
-            <div className={styles.habitGrid}>
-                {habits.map((habit, index) => (
-                    <div
-                        key={index}
-                        className={`${styles.habitItem} ${habit.completed ? styles.completed : ''}`}
-                        onClick={() => toggleHabit(index)}
+        <div className={`${styles.habitCardWrapper} ${isOpen ? styles.open : ''}`} onClick={!isOpen ? onClick : null}>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        className={styles.habitCard}
+                        variants={cardVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
                     >
-                        {habit.text}
-                    </div>
-                ))}
-            </div>
+                        {view === 'list' && <HabitListView onSelectHabit={handleSelectHabit} />}
+                        {view === 'detail' && <HabitDetailView habit={selectedHabit} onClose={handleCloseDetail} />}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+            {!isOpen && <h3 className={styles.entryTitle}>Habits</h3>}
         </div>
     );
 };

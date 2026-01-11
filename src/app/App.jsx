@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import WelcomeScreen from '../screens/Welcome/WelcomeScreen';
 import LoginScreen from '../screens/Login/LoginScreen';
-
 import HomeScreen from '../screens/Home/HomeScreen';
 import TerminationScreen from '../screens/Termination/TerminationScreen';
 
@@ -12,7 +11,6 @@ function App() {
     useEffect(() => {
         const isTerminated = localStorage.getItem('app_terminated') === 'true';
         const authToken = localStorage.getItem('auth_token');
-
 
         if (isTerminated) {
             setScreen('terminated');
