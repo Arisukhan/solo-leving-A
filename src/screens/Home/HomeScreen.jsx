@@ -6,7 +6,7 @@ import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import QuestCard from '../../components/QuestCard/QuestCard';
 import HabitCard from '../../components/HabitCard/HabitCard';
 
-const HomeScreen = () => {
+const HomeScreen = ({ onNavigateToQuestLibrary }) => {
     const [activeCard, setActiveCard] = useState(null); // null, 'quest', 'habit'
 
     const handleCardClick = (card) => {
@@ -26,7 +26,7 @@ const HomeScreen = () => {
             {activeCard && <div className={styles.backdrop} onClick={handleBackdropClick} />}
             <div className={styles.homeScreen}>
                 <div className={styles.nav}>
-                    <VerticalNav />
+                    <VerticalNav onNavigateToQuestLibrary={onNavigateToQuestLibrary} />
                 </div>
                 <div className={styles.hud}>
                     <HudPanel />

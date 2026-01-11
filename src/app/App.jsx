@@ -4,6 +4,7 @@ import WelcomeScreen from '../screens/Welcome/WelcomeScreen';
 import LoginScreen from '../screens/Login/LoginScreen';
 import HomeScreen from '../screens/Home/HomeScreen';
 import TerminationScreen from '../screens/Termination/TerminationScreen';
+import QuestLibraryScreen from '../screens/QuestLibrary/QuestLibraryScreen';
 
 function App() {
     const [screen, setScreen] = useState('welcome');
@@ -23,6 +24,7 @@ function App() {
 
     const navigateToLogin = () => setScreen('login');
     const navigateToHome = () => setScreen('home');
+    const navigateToQuestLibrary = () => setScreen('questLibrary');
     const handleTermination = () => setScreen('terminated');
 
     const pageVariants = {
@@ -75,7 +77,19 @@ function App() {
                         variants={pageVariants}
                         transition={pageTransition}
                     >
-                        <HomeScreen />
+                        <HomeScreen onNavigateToQuestLibrary={navigateToQuestLibrary} />
+                    </motion.div>
+                )}
+                {screen === 'questLibrary' && (
+                     <motion.div
+                        key="questLibrary"
+                        initial="initial"
+                        animate="in"
+                        exit="out"
+                        variants={pageVariants}
+                        transition={pageTransition}
+                    >
+                        <QuestLibraryScreen onNavigateToHome={navigateToHome} />
                     </motion.div>
                 )}
             </AnimatePresence>
