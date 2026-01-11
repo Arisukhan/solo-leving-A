@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styles from './WarningModal.module.css';
 import SystemButton from '../Buttons/SystemButton';
 
-const WarningModal = ({ isOpen, onClose, message, count }) => {
+const WarningModal = ({ isOpen, onClose, message }) => {
     useEffect(() => {
         if (isOpen) {
             const timer = setTimeout(() => {

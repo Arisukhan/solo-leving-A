@@ -1,0 +1,19 @@
+.homeScreen {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 120px;
+    grid-template-rows: 120px 1fr;
+    grid-template-areas:
+        "nav hud main-grid buttons"
+        "nav quest-card habit-card buttons";
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.hud { grid-area: hud; }
+.nav { grid-area: nav; }
+.buttons { grid-area: buttons; }
+.questCard { grid-area: quest-card; }
+.habitCard { grid-area: habit-card; }
