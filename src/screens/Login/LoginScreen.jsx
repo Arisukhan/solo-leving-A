@@ -4,20 +4,28 @@ import EnergyFrame from '../../components/EnergyFrame/EnergyFrame';
 import TopBorder from '../../components/Borders/TopBorder';
 import BottomBorder from '../../components/Borders/BottomBorder';
 import SystemWindow from '../../components/SystemWindow/SystemWindow';
-import SystemButton from '../../components/Buttons/SystemButton';
-import WarningModal from '../../components/Modals/WarningModal';
+import { Eye, EyeOff } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const LoginScreen = ({ onBack }) => {
-    const [showWarning, setShowWarning] = useState(false);
-    const [clicks, setClicks] = useState(0);
+const LoginScreen = ({ onLoginSuccess }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [isPasswordVisible, setPasswordVisible] = useState(false);
 
-    const handleLogin = () => {
-        // Logic allowed: Warning counter
-        const newClicks = clicks + 1;
-        setClicks(newClicks);
-        if (newClicks % 2 !== 0) {
-            setShowWarning(true);
+    const handleLogin = (e) => {
+        e.preventDefault();
+        // Simple validation, in a real app this would be more robust
+        if (username.trim() !== '' && password.trim() !== '') {
+            localStorage.setItem('auth_token', 'dummy_token');
+            onLoginSuccess();
+        } else {
+            // Optional: Add some feedback for empty fields
+            alert('Username and password cannot be empty.');
         }
+    };
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!isPasswordVisible);
     };
 
     return (
@@ -25,28 +33,50 @@ const LoginScreen = ({ onBack }) => {
             <EnergyFrame>
                 <TopBorder />
                 <SystemWindow>
-                    <h2 style={{ color: 'var(--anime-cyan)', marginBottom: '30px' }}>IDENTIFICATION</h2>
-                    <input type="text" placeholder="AGENT ID" className={styles.inputField} />
-                    <input type="password" placeholder="ACCESS KEY" className={styles.inputField} />
+                    <h2 className={styles.title}>LOGIN</h2>
+                    <form onSubmit={handleLogin} className={styles.loginForm}>
+                        <div className={styles.inputWrapper}>
+                            <input
+                                type="text"
+                                placeholder="Username or Email"
+                                className={styles.inputField}
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </div>
+                        <div className={styles.inputWrapper}>
+                            <input
+                                type={isPasswordVisible ? 'text' : 'password'}
+                                placeholder="Password"
+                                className={styles.inputField}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <button
+                                type="button"
+                                onClick={togglePasswordVisibility}
+                                className={styles.visibilityToggle}
+                            >
+                                {isPasswordVisible ? <EyeOff size={20} /> : <Eye size={20} />}
+                            </button>
+                        </div>
 
-                    <div style={{ display: 'flex' }}>
-                        <SystemButton onClick={handleLogin}>AUTHENTICATE</SystemButton>
-                        <SystemButton onClick={onBack}>ABORT</SystemButton>
-                    </div>
+                        <motion.button
+                            type="submit"
+                            className={styles.loginButton}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            ENTER SYSTEM
+                        </motion.button>
 
-                    <div className={styles.statusText}>
-                        SYSTEM STATUS: NORMAL
-                    </div>
+                        <a href="#" className={styles.forgotPassword}>
+                            Forgot Password?
+                        </a>
+                    </form>
                 </SystemWindow>
                 <BottomBorder />
             </EnergyFrame>
-
-            <WarningModal
-                isOpen={showWarning}
-                onClose={() => setShowWarning(false)}
-                message="UNAUTHORIZED ACCESS DETECTED"
-                count={clicks}
-            />
         </div>
     );
 };
