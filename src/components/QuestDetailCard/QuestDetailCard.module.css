@@ -1,0 +1,93 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Higher than the form modal */
+}
+
+.detailCard {
+    background: rgba(10, 20, 35, 0.85);
+    border: 1px solid rgba(0, 175, 255, 0.4);
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 30px rgba(0, 175, 255, 0.25);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    color: #E0E0E0;
+    border-bottom: 1px solid rgba(0, 175, 255, 0.2);
+    padding-bottom: 1.5rem;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 2rem;
+    color: #00AFFF;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    color: #8C96A6;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+    color: #E0E0E0;
+}
+
+.content {
+    color: #C0C8D4;
+}
+
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.content strong {
+    color: #E0E0E0;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 175, 255, 0.2);
+}
+
+.xp {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00AFFF;
+}
+
+.stats {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.statTag {
+    background-color: #334155;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}

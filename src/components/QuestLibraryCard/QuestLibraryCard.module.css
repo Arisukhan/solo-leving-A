@@ -1,0 +1,72 @@
+.questCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    background-color: #0F1A2A;
+    border-left: 5px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.questCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.core { border-color: #00AFFF; }
+.optional { border-color: #8C96A6; }
+.special { border-color: #A45EE5; }
+
+.cardContent {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.xpBadge {
+    margin-left: 1rem;
+    padding: 0.25rem 0.5rem;
+    background-color: #00AFFF;
+    color: #010A1A;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.actionButton {
+    background: none;
+    border: none;
+    color: #8C96A6;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.actionButton:hover {
+    color: #E0E0E0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.actionButton:disabled {
+    color: #4A5568;
+    cursor: not-allowed;
+}
+
+.lockIcon {
+    color: #FBBF24; /* Amber color for the lock */
+}

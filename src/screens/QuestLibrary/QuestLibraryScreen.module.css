@@ -1,0 +1,62 @@
+.questLibraryScreen {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #010A1A;
+    color: #E0E0E0;
+    box-sizing: border-box;
+}
+
+.nav {
+    width: 80px; /* Same as HomeScreen for consistency */
+    flex-shrink: 0;
+}
+
+.mainContent {
+    flex-grow: 1;
+    padding: 2rem 3rem;
+    overflow-y: auto;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #00AFFF; /* Bright cyan */
+    text-shadow: 0 0 10px #00AFFF;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.addQuestButton, .searchInput, .sortDropdown {
+    background-color: #0F172A;
+    border: 1px solid #334155;
+    border-radius: 4px;
+    padding: 0.75rem;
+    color: #E0E0E0;
+    font-size: 1rem;
+}
+
+.addQuestButton {
+    background-color: #00AFFF;
+    color: #010A1A;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.addQuestButton:hover {
+    background-color: #33CFFF;
+}
+
+.searchInput {
+    flex-grow: 1;
+    max-width: 400px;
+}
