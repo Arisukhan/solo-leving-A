@@ -1,18 +1,9 @@
-import React from 'react';
-
+e to the System.
+=======
 const HomeScreen = () => {
     return (
-        <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh',
-            backgroundColor: '#000',
-            color: '#fff',
-            fontFamily: 'monospace',
-            fontSize: '2rem'
-        }}>
-            Welcome to the System.
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', color: 'white', fontSize: '2rem' }}>
+            Welcome, Player.
         </div>
     );
 };

@@ -2,77 +2,82 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import WelcomeScreen from '../screens/Welcome/WelcomeScreen';
 import LoginScreen from '../screens/Login/LoginScreen';
-import TerminatedScreen from '../screens/Terminated/TerminatedScreen';
+
 import HomeScreen from '../screens/Home/HomeScreen';
+import TerminationScreen from '../screens/Termination/TerminationScreen';
 
 function App() {
-    const [currentScreen, setCurrentScreen] = useState('welcome');
-    const [isTerminated, setIsTerminated] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [screen, setScreen] = useState('welcome');
 
     useEffect(() => {
-        const terminated = localStorage.getItem('appTerminated');
-        if (terminated === 'true') {
-            setIsTerminated(true);
-            return;
-        }
+        const isTerminated = localStorage.getItem('app_terminated') === 'true';
+        const authToken = localStorage.getItem('auth_token');
 
-        const token = localStorage.getItem('authToken');
-        if (token) {
-            setIsAuthenticated(true);
+
+        if (isTerminated) {
+            setScreen('terminated');
+        } else if (authToken) {
+            setScreen('home');
+        } else {
+            setScreen('welcome');
         }
     }, []);
 
-    const navigateToLogin = () => setCurrentScreen('login');
-    const navigateToWelcome = () => setCurrentScreen('welcome');
+    const navigateToLogin = () => setScreen('login');
+    const navigateToHome = () => setScreen('home');
+    const handleTermination = () => setScreen('terminated');
 
-    const handleLogin = () => {
-        localStorage.setItem('authToken', 'dummy-token');
-        setIsAuthenticated(true);
+    const pageVariants = {
+        initial: { opacity: 0 },
+        in: { opacity: 1 },
+        out: { opacity: 0 },
     };
 
-    if (isTerminated) {
-        return <TerminatedScreen />;
-    }
-
-    if (isAuthenticated) {
-        return <HomeScreen />;
-    }
-
-    const screenVariants = {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        exit: { opacity: 0 },
+    const pageTransition = {
+        type: 'tween',
+        ease: 'anticipate',
+        duration: 0.5,
     };
 
     return (
         <>
-            <div className="background-grid"></div>
-
+            <div className="background-grid" />
             <AnimatePresence mode="wait">
-                {currentScreen === 'welcome' && (
+                {screen === 'terminated' && <TerminationScreen />}
+                {screen === 'welcome' && (
                     <motion.div
                         key="welcome"
-                        variants={screenVariants}
                         initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        transition={{ duration: 0.5 }}
+                        animate="in"
+                        exit="out"
+                        variants={pageVariants}
+                        transition={pageTransition}
                     >
-                        <WelcomeScreen onStart={navigateToLogin} />
+                        <WelcomeScreen onStart={navigateToLogin} onTerminate={handleTermination} />
                     </motion.div>
                 )}
-
-                {currentScreen === 'login' && (
+                {screen === 'login' && (
                     <motion.div
                         key="login"
-                        variants={screenVariants}
                         initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        transition={{ duration: 0.5 }}
+                        animate="in"
+                        exit="out"
+                        variants={pageVariants}
+                        transition={pageTransition}
                     >
-                        <LoginScreen onBack={navigateToWelcome} onLoginSuccess={handleLogin} />
+                        <LoginScreen onLoginSuccess={navigateToHome} />
+                    </motion.div>
+                )}
+                {screen === 'home' && (
+                     <motion.div
+                        key="home"
+                        initial="initial"
+                        animate="in"
+                        exit="out"
+                        variants={pageVariants}
+                        transition={pageTransition}
+                    >
+                        <HomeScreen />
                     </motion.div>
                 )}
             </AnimatePresence>
