@@ -1,0 +1,33 @@
+.detailView {
+    padding: 20px;
+    position: relative;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--anime-cyan-dim);
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    color: var(--anime-cyan-bright);
+}
+
+.title {
+    color: var(--anime-cyan-bright);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.description {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.stats {
+    color: var(--anime-cyan);
+}
